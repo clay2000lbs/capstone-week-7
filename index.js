@@ -32,13 +32,13 @@ class Calculator {
     }
 }
 
-const numberBtn = document.querySelectorAll('number')
-const operandBtn = document.querySelectorAll('operand')
-const equalsBtn = document.querySelector('equals')
-const deleteBtn = document.querySelector('delete')
-const clearBtn = document.querySelector('clear')
-const previousOperandContainer = document.querySelector('previous-operand')
-const currentOperandContainer = document.querySelector('current-operand')
+const numberBtn = document.querySelectorAll('.number')
+const operandBtn = document.querySelectorAll('.operand')
+const equalsBtn = document.querySelector('#equals')
+const deleteBtn = document.querySelector('#delete')
+const clearBtn = document.querySelector('.clear')
+const previousOperandContainer = document.querySelector('.previous-operand')
+const currentOperandContainer = document.querySelector('.current-operand')
 
 const calculator = new Calculator(previousOperandContainer, currentOperandContainer)
 
