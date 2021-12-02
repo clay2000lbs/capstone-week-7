@@ -88,6 +88,7 @@ class Calculator {
             this.previousOperandContainer.innerText = ''
         }
     }
+  
 }
 
 const numberBtn = document.querySelectorAll('.number')
@@ -97,6 +98,7 @@ const deleteBtn = document.querySelector('.delete')
 const clearBtn = document.querySelector('#clear')
 const previousOperandContainer = document.querySelector('.previous-operand')
 const currentOperandContainer = document.querySelector('.current-operand')
+const saveBtn = document.querySelector('.save-button')
 
 const calculator = new Calculator(previousOperandContainer, currentOperandContainer)
 
@@ -127,4 +129,10 @@ clearBtn.addEventListener('click', button => {
 deleteBtn.addEventListener('click', button => {
     calculator.delete()
     calculator.updateDisplay()
+})
+
+
+
+saveBtn.addEventListener('click', button => {
+    appendSave()
 })

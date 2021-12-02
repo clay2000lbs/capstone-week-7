@@ -55,6 +55,11 @@ table {
 
 body {
     background: linear-gradient(to right, purple, violet);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
 }
 
 .calculator-grid {
@@ -64,6 +69,7 @@ body {
     min-height: 100vh;
     grid-template-columns: repeat(4, 100px);
     grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+   
 }
 
 .calculator-grid > button {
@@ -72,6 +78,7 @@ body {
     border: 1px solid white;
     outline: none;
     background-color: rgba(255, 255, 255, .75);
+    border-radius: 5%;
 }
 
 .calculator-grid > button:hover {
@@ -80,6 +87,10 @@ body {
 
 .span-two {
     grid-column: span 2;
+}
+
+.calculator-grid button .span-two {
+    background-color: black;
 }
 
 .output {
@@ -102,4 +113,44 @@ body {
 .output .current-operand{
     color: rgba(255, 255, 255, .75);
     font-size: 2.5rem
+}
+
+nav {
+    width: 80%;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    margin: 2rem;
+}
+
+.user-actions {
+    display: flex;
+    color: black;
+    font-size: 1.5rem;
+    margin: 1rem;
+}
+
+h1 {
+    color:blanchedalmond;
+    font-size: 3rem;
+}
+
+a {
+    margin-left: 3rem;
+
+}
+
+a:link {
+    text-decoration: none;
+}
+
+.saves-container {
+    width: 30%;
+    height: auto;
+    background-color: blanchedalmond;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5%;
+    font-size: 2rem;
 }
