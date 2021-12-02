@@ -1,3 +1,4 @@
+
 class Calculator {
     constructor(previousOperandContainer, currentOperandContainer) {
         this.previousOperandContainer = previousOperandContainer   
@@ -89,7 +90,7 @@ class Calculator {
         }
     }
   
-}
+};
 
 const numberBtn = document.querySelectorAll('.number')
 const operandBtn = document.querySelectorAll('.operand')
@@ -99,6 +100,16 @@ const clearBtn = document.querySelector('#clear')
 const previousOperandContainer = document.querySelector('.previous-operand')
 const currentOperandContainer = document.querySelector('.current-operand')
 const saveBtn = document.querySelector('.save-button')
+const savesContainer = document.querySelector('.saves-container')
+
+
+const baseURL = `http://localhost:4004/api/calcSaves`
+
+const savesCallback = ({ data: saves}) => appendSave(saves)
+const errCallback = err => console.log(err)
+
+const getSaves = () => axios.get(baseURL).then(savesCallback).catch(errCallback)
+const createSaves = body => axios.post(baseURL, body).then(savesCallback).catch(errCallback)
 
 const calculator = new Calculator(previousOperandContainer, currentOperandContainer)
 
@@ -131,8 +142,29 @@ deleteBtn.addEventListener('click', button => {
     calculator.updateDisplay()
 })
 
+function createSaveLi(saves) {
+    const saveLi = document.createElement('li')
+    saveLi.classList.add('save')
+    saveLi.textContent = `${saves}`   
+    savesContainer.appendChild(saveLi)
+}
+
+function appendSave(arr) {
+    savesContainer.innerHTML = ''
+    for (let i = 0; i < arr.length; i++) {
+        createSaveLi(arr[i])
+    }
+}
 
 
 saveBtn.addEventListener('click', button => {
-    appendSave()
+
+    let bodyObj = {
+        value: currentOperandContainer.innerText
+    }
+
+    createSaveLi(bodyObj.value)
+
+    saves.value = ''
+    
 })

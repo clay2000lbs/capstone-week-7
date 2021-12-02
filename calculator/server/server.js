@@ -11,7 +11,7 @@ getSaves,
 createSave
 } = require(`./controller`)
 
-app.get('/api/calcSaves', getSaves)
+app.get(`/api/calcSaves`, getSaves)
 app.post(`./api.calcSaves`, createSave)
 
 app.listen(4004, () => console.log(`running on 4004`))
