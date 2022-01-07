@@ -5,7 +5,7 @@ class Calculator {
         this.currentOperandContainer = currentOperandContainer
         this.clear()
     }
-
+    // Clear Function 
     clear() {
         this.previousOperand = ''
         this.currentOperand = ''
