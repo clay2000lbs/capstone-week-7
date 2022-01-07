@@ -1,4 +1,5 @@
 const saves = require('./db.json')
+const path = require('path')
 let globalId = 1
 
 module.exports = {
@@ -12,5 +13,6 @@ module.exports = {
         saves.push(newSave)
         res.status(200).send(saves)
         globalId++
-    }
+    },
+    render: (req, res) => res.sendFile(path.join(__dirname, "../index.html"))
 }
